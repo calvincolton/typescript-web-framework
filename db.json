@@ -1,14 +1,9 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Michael Jackson",
-      "age": 0
-    },
-    {
-      "name": "Billy Jean",
-      "age": 16,
-      "id": 2
+      "name": "Joe Johnson",
+      "age": 30,
+      "id": 1
     }
   ]
 }
