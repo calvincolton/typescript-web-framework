@@ -132,29 +132,10 @@ function () {
     this.attributes = attributes;
     this.events = events;
     this.sync = sync;
+    this.on = this.events.on;
+    this.trigger = this.events.trigger;
+    this.get = this.attributes.get;
   }
-
-  Object.defineProperty(Model.prototype, "on", {
-    get: function get() {
-      return this.events.on;
-    },
-    enumerable: false,
-    configurable: true
-  });
-  Object.defineProperty(Model.prototype, "trigger", {
-    get: function get() {
-      return this.events.trigger;
-    },
-    enumerable: false,
-    configurable: true
-  });
-  Object.defineProperty(Model.prototype, "get", {
-    get: function get() {
-      return this.attributes.get;
-    },
-    enumerable: false,
-    configurable: true
-  });
 
   Model.prototype.set = function (update) {
     this.attributes.set(update);
@@ -2143,6 +2124,10 @@ function (_super) {
 
   User.buildUser = function (attrs) {
     return new User(new Attributes_1.Attributes(attrs), new Eventing_1.Eventing(), new ApiSync_1.ApiSync(rootUrl));
+  };
+
+  User.prototype.isAdminUser = function () {
+    return this.get('id') === 1;
   };
 
   return User;
